@@ -1,8 +1,18 @@
 import './App.css';
+import About from './Pages/About/About';
+import Landing from './Pages/Landing/Landing';
+import Navbar from './Pages/Navbar/Navbar';
+
+
 
 function App() {
+
   return (
-    <p className='mx-auto w-96'>Hellow Tailwind</p>
+    <>
+      <Navbar></Navbar>
+      <Landing></Landing>
+      <About></About>
+    </>
   );
 }
 
