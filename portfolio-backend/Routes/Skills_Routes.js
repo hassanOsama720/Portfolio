@@ -10,10 +10,12 @@ router
     .get(Controller.getAllSkills)
     .post(Controller.addSkill);
 router
-    .route("/skills/:name")
+    .route("/skills/:_id")
     .delete(Controller.deleteSkill)
     .put(Controller.editSkill);
 
-
+router
+    .route("/skills/:type")
+    .get(Controller.getByType);
 
 module.exports = router;    

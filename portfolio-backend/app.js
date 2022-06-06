@@ -12,9 +12,20 @@ const app = express();
 const skillsRouter = require("./Routes/Skills_Routes");
 const skillsController = require("./Controller/Skills_Controller");
 
-const skillStorage = multer.diskStorage({
+const projectsRouter = require("./Routes/Projects_Routes");
+const messagesRouter = require("./Routes/Messages_Routes");
+
+// const skillStorage = multer.diskStorage({
+//     destination: (req,file,cb)=>{
+//         cb(null,"Images/skill")
+//     },
+//     filename: (req,file,cb)=>{
+//         cb(null,Date.now() + path.extname(file.originalname))
+//     }
+// })
+const projectsStorage = multer.diskStorage({
     destination: (req,file,cb)=>{
-        cb(null,"Images/skill")
+        cb(null,"Images/project")
     },
     filename: (req,file,cb)=>{
         cb(null,Date.now() + path.extname(file.originalname))
@@ -39,10 +50,15 @@ mongoose
 
 app.listen(process.env.PORT_NUMBER || 8080);
 
-const skillUpload = multer({storage:skillStorage})
 
+const projectUpload = multer({storage:projectsStorage})
+app.use(projectUpload.fields([{name:"image"},{name:"bigImage"}]), projectsRouter);
+app.use('/Images/project', express.static(process.cwd() + '/Images/project'))
+app.use(messagesRouter);
+app.use(skillsRouter);
 
-app.use(skillUpload.single("image"), skillsRouter);
+// app.use('/Images/skill', express.static(process.cwd() + '/Images/skill'))
+
 
 
 

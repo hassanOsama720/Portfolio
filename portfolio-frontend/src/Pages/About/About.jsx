@@ -8,8 +8,8 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 
 
 function About() {
-  return (
-    <div id='about' className=" cont md:h-screen relative w-full bg-slate-200 dark:bg-transparent flex flex-col-reverse items-center md:justify-center lg:justify-evenly gap-20 lg:flex-row lg:pt-32 md:pt-16 md:px-28">
+  return (<div id='about' className=" cont md:h-screen relative w-full bg-slate-200 dark:bg-transparent flex flex-col-reverse items-center md:justify-center lg:justify-evenly gap-20 lg:flex-row lg:pt-32 md:pt-16 md:px-28">
+    
       <div className="graph w-[100%] lg:w-[40%] h-[300px] md:h-[500px] lg:h-[90%] relative">
         <div className="card w-[30%] h-[30%] md:w-[35%] z-10 md:h-[35%] absolute left-[7%] top-[5%%] bg-back2 animate-border1  rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl flex flex-col gap-2 justify-center items-center">
           <DesignServicesIcon className=' scale-[200%] text-white animate-colorChange'></DesignServicesIcon>
@@ -50,7 +50,7 @@ function About() {
         <p className='text-slate-600 dark:text-white'>looking forward to a position where I can enhance my skillset web technologies specifically
             <span className='text-main font-semibold'> MERN | MEAN-STACK </span> to develop and implement solutions tomeet business needs.</p>
         <div className="more w-full mt-10 flex gap-6 items-center">
-          <button class="rounded-full bg-secondary p-2 w-[30%] text-white border-2 border-secondary hover:bg-white hover:text-secondary font-bold transition-all">Contact Me</button>
+          <a class="rounded-full bg-secondary p-2 w-[30%] text-center text-white border-2 border-secondary hover:bg-white hover:text-secondary font-bold transition-all" href='#contact'>Contact Me</a>
           <a href='https://drive.google.com/file/d/1JgH2Y-MPVlNWi0F1XmGQCpiZpciumQn1/view?usp=sharing' target={'_blank'} className='text-main animate-letters drop-shadow-3xl font-bold hover:drop-shadow-3xl hover:text-back'>Download CV</a>
         </div>    
       </div>

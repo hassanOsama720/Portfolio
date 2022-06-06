@@ -5,15 +5,46 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {Dark_bg:'#090912',secondary:'#5727B0',main:'#9C27B0',back:'#57ACDC',back2:'#242435'},
+      colors: {Dark_bg:'#090912',secondary:'#5727B0',main:'#9C27B0',
+        back:'#57ACDC',
+        back2:'#242435',
+        linkedIn:'#0e76a8',
+        github:'#171515',
+        facebook:'#3b5998',
+        twitter:'#00acee'
+      
+      },
       keyframes: {
         dragon: {
-          '0% ':{mixBlendMode: 'plus-lighter'},
-          '25% ':{mixBlendMode: 'difference'},
-          '50% ':{mixBlendMode: 'hue'},
-          '75% ':{mixBlendMode: 'overlay'},
-          '100% ':{mixBlendMode: 'unset'},
+          '0%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+        },
+          '30%': {
+            opacity: '0',
+            transform: 'translateY(-30px)'
+        },
+          '70%': {
+            opacity: '0',
+            transform: 'translateY(-30px)'
+        },
           
+        '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+        },
+      },
+        skills: {
+          '0%': {
+            transform: 'translateX(0)'
+          },
+          '50%': {
+            transform: 'translateX(-30px)'
+        },
+          '100%': {
+            transform: 'translateX(0)'
+        },
+                
         },
         letters: {
           '0% ':{color: '#9C27B0'},
@@ -51,7 +82,8 @@ module.exports = {
 
       },
         animation: {
-          dragon: 'dragon 4s ease-in-out infinite alternate',
+          dragon: 'dragon 2s linear forwards',
+          skills: 'skills 1.5s linear infinite',
           letters: 'letters 3s ease-in-out infinite alternate',
           letters2: 'letters 3s 1s ease-in-out infinite alternate',
           letters3: 'letters 3s 2s ease-in-out infinite alternate',
@@ -68,7 +100,8 @@ module.exports = {
         },
         dropShadow: {
           '3xl': '0 25px 25px rgb(66 47 134 / 97%)',
-          '4xl': '0 25px 25px rgb(38 38 41)'
+          '4xl': '0 25px 25px rgb(38 38 41)',
+          '5xl': '-50px 0px 15px rgb(11 15 49 / 97%)'
         }
     },
   },

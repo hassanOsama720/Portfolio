@@ -6,7 +6,16 @@ const fs = require("fs")
 exports.getAllSkills = (req,res,next)=>{
     Skills.find({})
         .then((data)=>{
-            res.status(200).json({data})
+            res.status(200).json(data)
+        })
+        .catch((err)=>{
+            next(err)
+        })
+}
+exports.getByType = (req,res,next)=>{
+    Skills.find({type:req.params.type})
+        .then((data)=>{
+            res.status(200).json(data)
         })
         .catch((err)=>{
             next(err)
@@ -17,7 +26,8 @@ exports.addSkill = (req,res,next)=>{
     let object = new Skills({
         name:req.body.name,
         rate:req.body.rate,
-        image:req.file.filename
+        type:req.body.type,
+        
     })
     object.save()
         .then(()=>{
@@ -29,37 +39,25 @@ exports.addSkill = (req,res,next)=>{
 }
 
 exports.deleteSkill = (req,res,next)=>{
-    Skills.findOne({name:req.params.name})
-        .then((data)=>{
-            Skills.deleteOne({name:req.params.name})
-                .then((mssg)=>{
-                    fs.unlink(`Images/skill/${data.image}`, (err)=>{
-                        if(err){
-                            next(err)
-                        }
-                        else{
-                            res.status(200).json({Deleted:mssg})
-                        }    
-                })
-            })     
+    Skills.deleteOne({_id:req.params._id})
+        .then(()=>{
+            res.status(200).json({mssg:"Skill deleted"})
         })
-        .catch((err)=>{
-            next(err)
-        })
+        
 }
 exports.editSkill = (req,res,next)=>{
-    Skills.findOne({name:req.params.name})
+    Skills.findOne({_id:req.params._id})
         .then((data)=>{
             if(req.body.changeImage){
                 fs.unlink(`Images/skill/${data.image}`, (err)=>{
                     if(err){
                         next(err)
                     }})
-                    Skills.findOneAndUpdate({name:req.params.name},{
+                    Skills.findOneAndUpdate({_id:req.params._id},{
                         $set:{
                             name:req.body.name,
                             rate:req.body.rate,
-                            image:req.file.filename
+                            image:req.files.image[0].filename
                         }
                     })
                     .then((data)=>{
@@ -69,7 +67,7 @@ exports.editSkill = (req,res,next)=>{
                         next(err)
                     })
             }
-            Skills.findOneAndUpdate({name:req.params.name},{
+            Skills.findOneAndUpdate({_id:req.params._id},{
                 $set:{
                     name:req.body.name,
                     rate:req.body.rate

@@ -36,3 +36,67 @@
     transform: rotate(360deg);
   }
 }
+
+
+.hello h5 {
+  color: #fff;
+  font-size: 8em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.hello h5:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #57ACDC;
+}
+
+.hello h5:nth-child(2) {
+  color: #57ACDC;
+  animation: skills 4s ease-in-out infinite;
+}
+
+.word1{
+  animation: word1 3s linear infinite;
+}
+
+@keyframes Word1 {
+  0% {
+    display: inline-block;
+  }
+  25% {
+    display: inline-block;
+  }
+  30% {
+    display: none;
+  }
+  
+}
+@keyframes Word2 {
+  25% {
+    display: none;
+  }
+  30% {
+    display: inline-block;
+  }
+  55% {
+    display: inline-block;
+  }
+  65% {
+    display: none;
+  }
+  
+}
+@keyframes Word3 {
+  65% {
+    display: none;
+  }
+  70% {
+    display: inline-block;
+  }
+  90% {
+    display: inline-block;
+  }
+  100% {
+    display: none;
+  }
+  
+}

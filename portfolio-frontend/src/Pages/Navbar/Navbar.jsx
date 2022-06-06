@@ -40,11 +40,12 @@ function Navbar() {
         <CoPresentIcon></CoPresentIcon>
         <ChevronRightIcon></ChevronRightIcon>
       </div>
-      <ul className={`menu  ${toggel[0]} ${toggel[1]} gap-9 sm:h-auto sm:flex flex-wrap flex-col flex-1 sm:flex-row sm:gap-10 duration-1000`}>
+      <ul className={`menu  ${toggel[0]} ${toggel[1]} ${navBack ? "gap-20" : "gap-9"}  sm:h-auto sm:flex flex-wrap flex-col flex-1 sm:flex-row sm:gap-10 duration-1000`}>
         <li className='nav-link text-secondary text-lg font-bold hover:drop-shadow-3xl  hover:scale-125 hover:text-back hover:animate-spin' ><a href='#'>Home</a></li>
         <li className='nav-link text-secondary text-lg font-bold hover:drop-shadow-3xl  hover:scale-125 hover:text-back hover:animate-spin'><a href='#about'>About</a></li>
-        <li className='nav-link text-secondary text-lg font-bold hover:drop-shadow-3xl  hover:scale-125 hover:text-back hover:animate-spin '><a href='#'>Skills</a></li>
-        <li className='nav-link text-secondary text-lg font-bold hover:drop-shadow-3xl  hover:scale-125 hover:text-back hover:animate-spin'><a href='#'>Works</a></li>
+        <li className='nav-link text-secondary text-lg font-bold hover:drop-shadow-3xl  hover:scale-125 hover:text-back hover:animate-spin '><a href='#skills'>Skills</a></li>
+        <li className='nav-link text-secondary text-lg font-bold hover:drop-shadow-3xl  hover:scale-125 hover:text-back hover:animate-spin'><a href='#projects'>Projects</a></li>
+        <li className='nav-link text-secondary text-lg font-bold hover:drop-shadow-3xl  hover:scale-125 hover:text-back hover:animate-spin'><a href='#contact'>Contact Me</a></li>
       </ul>
       {colorTheme === "dark" ? <BrightnessMediumIcon onClick={()=>{setTheme(colorTheme)}} className='text-secondary absolute right-7 hover:cursor-pointer hover:text-back hover:animate-spin'></BrightnessMediumIcon>:
       <Brightness4Icon onClick={()=>{setTheme(colorTheme)}} className='text-secondary absolute right-7 hover:cursor-pointer hover:text-back hover:animate-spin'></Brightness4Icon>}
